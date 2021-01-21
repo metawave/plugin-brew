@@ -2,7 +2,7 @@ if status is-login
   # check $HOMEBREW_BIN and set $brew
   set -q HOMEBREW_BIN
     and set -l brew $HOMEBREW_BIN
-    or set -l brew /usr/local/bin/brew
+    or set -l brew (for pbp in /usr/local/bin/brew /opt/homebrew/bin/brew /home/linuxbrew/.linuxbrew/bin/brew ~/.linuxbrew/bin/brew; if test -e $pbp; echo $pbp; end; end)
 
   # By default, `brew shellenv` sets $fish_user_paths as a global variable instead of directly
   # setting $PATH. This behavior should be avoided and thus is overriden here, since setting 
